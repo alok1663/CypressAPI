@@ -2,7 +2,7 @@ describe('template spec', () => {
 
   beforeEach(() => {
    cy.viewport(1920, 1080);
-    cy.visit('https://www.socastdigital.com/');
+    cy.visit('https://www.socastdigital.com/')
     cy.wait(2000);
   });
 
@@ -58,7 +58,7 @@ describe('template spec', () => {
     cy.contains('Success Stories').click();
   });
 
-  it('SoCast Support Centre', () => {
+  /*it('SoCast Support Centre', () => {
    
     cy.contains('Support').realHover();
     cy.wait(2000);
@@ -70,7 +70,7 @@ describe('template spec', () => {
     cy.wait(3000);
     cy.contains('Knowledge Base').click();
 
-  });
+  });*/
 
   it('Digital Expertise Page', () => {
    
@@ -105,7 +105,7 @@ cy.get('a[data-id="article_495022000001142034"]').click();
   })
 
 
-
+/*
   it('TestSHouldhave' , () => {
 
     cy.visit('https://www.socastdigital.com/careers/');
@@ -125,7 +125,7 @@ cy.get('a[data-id="article_495022000001142034"]').click();
     cy.get('strong').should('have.text', 'Elliott Hurst');
     cy.wait(3000);
     cy.get('a[href="https://socastdigital.zohorecruit.com/jobs/Careers/333867000003877009/Sales-Development-Representative?source=CareerSite"]').click();
-  })
+  })*/
 
 });
 

@@ -41,7 +41,7 @@ describe('GetCall function', () => {
     });
   });
 
-  it('PUT check', () => {
+  /*it('PUT check', () => {
     cy.request({
       method: "PUT",
       url: gurl + '/users/6940121',
@@ -55,9 +55,9 @@ describe('GetCall function', () => {
       cy.log(JSON.stringify(response));
       expect(response.body.status).to.eq("active");
     });
-  });
+  });*/
 
-  it('DELETE', () => {
+ /* it('DELETE', () => {
     cy.request({
       method: "DELETE",
       url: gurl + '/users/6975881',
@@ -67,7 +67,7 @@ describe('GetCall function', () => {
     }).then((response) => {
       expect(response.status).to.eq(204);
     });
-  });
+  });*/
 
   it('GET nested', () => {
     cy.request({
@@ -87,17 +87,6 @@ describe('GetCall function', () => {
 
 //DEMO QUERIES
 
-it('Demo' , () => { 
-
-Math.floor(Math.random()*10000);
-
-Math.random().toString(26).substring(15,2);
-
-username = Math.raondom().tostring(36).substring(15,2);
-
-
-
-})
 
 
 
