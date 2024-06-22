@@ -9,32 +9,25 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        containers: [1, 2] # Adjust the number of parallel instances as needed
+        containers: [1, 2]
 
     steps:
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0 # Fetch all history for all branches and tags
+          fetch-depth: 0
 
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '14' # Specify the Node.js version
+          node-version: '18'
 
       - name: Install Dependencies
         run: npm install
 
-      - name: Start Server
-        run: npm start 
-      
-  
-      
       - name: Cypress run
         uses: cypress-io/github-action@v6
         with:
-          start: npm start
-          wait-on: 'http://localhost:3000'
           record: true
           parallel: true
           group: ${{ matrix.containers }}
