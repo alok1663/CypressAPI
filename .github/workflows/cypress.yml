@@ -17,10 +17,7 @@ jobs:
         with:
           fetch-depth: 0 # Fetch all history for all branches and tags
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '14' # Specify the Node.js version
+
 
       - name: Install Dependencies
         run: npm install
