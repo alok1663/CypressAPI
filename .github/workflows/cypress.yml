@@ -1,0 +1,47 @@
+name: Cypress Tests wflow
+
+on: [push, pull_request]
+
+jobs:
+  cypress-run:
+    runs-on: ubuntu-latest
+
+    strategy:
+      fail-fast: false
+      matrix:
+        containers: [1, 2] # Adjust the number of parallel instances as needed
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # Fetch all history for all branches and tags
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '14' # Specify the Node.js version
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Start Server
+        run: npm start &
+      
+      - name: Wait on Server
+        uses: jakejarvis/wait-action@v0.1.0
+        with:
+          url: 'http://localhost:3000'
+          timeout: '60' # Adjust the timeout as needed
+      
+      - name: Cypress run
+        uses: cypress-io/github-action@v6
+        with:
+          start: npm start
+          wait-on: 'http://localhost:3000'
+          record: true
+          parallel: true
+          group: ${{ matrix.containers }}
+        env:
+          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
