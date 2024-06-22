@@ -1,0 +1,16 @@
+{
+  "devDependencies": {
+    "cypress": "^13.12.0",
+    "mochawesome-report-generator": "^6.2.0"
+  },
+  "compilerOptions": {
+    "types": [
+      "cypress",
+      "node",
+      "cypress-real-events"
+    ]
+  },
+  "dependencies": {
+    "cypress-real-events": "^1.13.0"
+  }
+}
