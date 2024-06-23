@@ -4,18 +4,22 @@ describe('template spec', () => {
    cy.viewport(1920, 1080);
     cy.visit('https://www.socastdigital.com/')
     cy.wait(2000);
+    cy.get('.text').should('have.text', 'Menu')
   });
 
   it('careerPage', () => {
+    cy.get('.text').should('have.text', 'Menu')
     cy.contains('a', 'Who We Are').focus();
     cy.contains('a', 'Who We Are').invoke('show');
     cy.contains('a', 'Who We Are').realHover();
     cy.wait(2000);
+    cy.contains('Career').should('exist');
     cy.contains('Careers').click();
+
   });
 
   it('AboutPage', () => {
-   
+   cy.contains('About').should('not.be.visible');
     cy.contains('Who We Are').realHover();
     cy.wait(2000);
     cy.contains('About').click();
