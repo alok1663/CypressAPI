@@ -1,5 +1,5 @@
 describe('GetCall function', () => {
-  let accessToken = '6f28e621b66a4cb272f29b7ce245bb9565ee4f8aaa6299ece3fa8e8003ea838d';
+  let accessToken = '05d3e3231d587240f9d2a3cf1d19a21ca6b023a21ebcc2aeed0f19f341698369';
   let gurl = 'https://gorest.co.in/public/v2';
   const userName = Math.random().toString(36).substring(2, 15);
   const emailId = userName + "@apple.com";
