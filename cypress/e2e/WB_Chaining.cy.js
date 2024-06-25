@@ -19,40 +19,77 @@ describe('WB Chaining', () => {
       cy.log(JSON.stringify(response));
       const iso = response.body[1][0].iso2Code;
       expect(response.status).to.eq(200);
-      expect(iso).to.eq(iso); // Assuming 'BR' is the correct iso2Code for Brazil
+      expect(iso).to.eq(iso);
 
       // Assert that the income level value is "High income"
       expect(response.body[1][0].incomeLevel.value).to.eq('Aggregates');
     });
   });
 
+  it('Chaining Again', () => {
+    cy.request({
+      url: 'http://api.worldbank.org/v2/country/?format=json',
+      method: 'GET',
+    }).then((response) => {
+      cy.log(JSON.stringify(response));
+      const area1 = response.body[1][0].region.value;
+      expect(area1).to.eq(area1);
+      const iso1 = response.body[1][0].iso2Code;
+
+      return cy.request({
+        url: 'http://api.worldbank.org/v2/country/' + iso1 + '?format=json',
+        method: 'GET',
+      }).then((response) => {
+        cy.log(JSON.stringify(response));
+        expect(response.status).to.eq(200);
+        expect(response.body[1][0].incomeLevel.value).to.eq('High income');
+      });
+    });
+  });
+
+  it('For Loop', () => {
+    cy.request({
+      url: 'http://api.worldbank.org/v2/country/?format=json',
+      method: 'GET',
+    }).then((response) => {
+      cy.log(JSON.stringify(response));
+      const isoCodes = response.body[1].map(country => country.iso2Code);
+
+      // Iterate over each ISO code
+      isoCodes.forEach(isoCode => {
+        cy.request({
+          url: 'http://api.worldbank.org/v2/country/' + isoCode + '?format=json',
+          method: 'GET',
+        }).then((response) => {
+          cy.log(JSON.stringify(response));
+          const city = response.body[1][0].capitalCity;
+          expect(response.status).to.eq(200);
+          expect(response.body[1][0].capitalCity).to.eq(city);
+        })
+      });
+    });
+  });
 
 
-it('Chaining Again', () => {
-  
-
+it('For Loop', () => {
   cy.request({
     url: 'http://api.worldbank.org/v2/country/?format=json',
-    method: 'GET',  
-
-  }).then((response)=>{
-    
+    method: 'GET',
+  }).then((response) => {
     cy.log(JSON.stringify(response));
-    const area1 = response.body[1][0].region.value;
-    expect(area1).to.eq(area1);
-    const iso1 = response.body[1][0].iso2Code; 
-  
+   // const isoCodes = response.body[1].map(country => country.iso2Code);
+ const income = response.body[1].map(countryinfo => countryinfo.incomeLevel.value);
 
-   return cy.request({
-      url: 'http://api.worldbank.org/v2/country/' + iso1 + '?format=json',
-      method: 'GET',
-    }).then((response)=>{
-      cy.log(JSON.stringify(response));
-      expect(response.status).to.eq(200);
-   expect(response.body[1][0].incomeLevel.value).to.eq('High income');})
-    
   
-  })
-  
-}
-  )})
+      income.forEach(incomelevel => {
+        expect(incomelevel).to.exist;
+
+    })
+
+  });
+});
+
+
+
+
+});

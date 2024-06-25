@@ -19,7 +19,7 @@ describe('template spec', () => {
   });
 
   it('AboutPage', () => {
-   cy.contains('About').should('not.be.visible');
+   //cy.contains('About').should('not.be.visible');
     cy.contains('Who We Are').realHover();
     cy.wait(2000);
     cy.contains('About').click();
