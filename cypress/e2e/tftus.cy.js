@@ -20,7 +20,7 @@ describe('Microsoft', () => {
   it('AboutUsPage', () => {
     cy.get('.nav-bar > :nth-child(1) > :nth-child(1) > a').should('have.text', 'About us');
     cy.get('.nav-bar > :nth-child(1) > :nth-child(1) > a').click();
-    cy.get('.col-8 > .btn > span').click(); 
+    cy.get('a[class="btn"] span').click(); 
 cy.wait(2000);
 
 
