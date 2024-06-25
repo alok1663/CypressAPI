@@ -18,8 +18,9 @@ describe('Microsoft', () => {
   });
 
   it('AboutUsPage', () => {
-    cy.get('.nav-bar > :nth-child(1) > :nth-child(1) > a').should('have.text', 'About us');
-    cy.get('.nav-bar > :nth-child(1) > :nth-child(1) > a').click();
+    cy.get('a[href="/about-us"]').should('have.text', 'About us');
+    cy.get('a[href="/about-us"]').click();
+    cy.wait(2000);
     cy.get('a[class="btn"] span').click(); 
 cy.wait(2000);
 
