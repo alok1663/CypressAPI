@@ -1,5 +1,4 @@
-
-/*const { defineConfig } = require('cypress');
+const { defineConfig } = require('cypress');
 const { beforeRunHook, afterRunHook } = require('cypress-mochawesome-reporter/lib');
 
 module.exports = defineConfig({
@@ -17,8 +16,10 @@ module.exports = defineConfig({
       });
     },
   },
-});*/
+});
 
+
+/*
 
 const { defineConfig } = require("cypress");
 
@@ -36,7 +37,7 @@ module.exports = defineConfig({
       html: false,
       json: true*/
 
-      
+      /*
   },
 
   
@@ -45,3 +46,5 @@ module.exports = defineConfig({
   
   
 );
+
+*/
