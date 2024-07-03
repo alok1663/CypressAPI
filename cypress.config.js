@@ -1,5 +1,5 @@
 
-const { defineConfig } = require('cypress');
+/*const { defineConfig } = require('cypress');
 const { beforeRunHook, afterRunHook } = require('cypress-mochawesome-reporter/lib');
 
 module.exports = defineConfig({
@@ -17,9 +17,9 @@ module.exports = defineConfig({
       });
     },
   },
-});
+});*/
 
-/*
+
 const { defineConfig } = require("cypress");
 
 module.exports = defineConfig({
@@ -28,15 +28,15 @@ module.exports = defineConfig({
       // implement node event listeners here
       require('cypress-mochawesome-reporter/plugin')(on);
     },
-   /* projectId: "iestc9",
-    /reporter: "cypress-mochawesome-reporter",
+    projectId: "iestc9",
+    reporter: "cypress-mochawesome-reporter",
     reporterOptions: {
       reportDir: "cypress/reports",
       overwrite: false,
       html: false,
       json: true*/
 
-      /*
+      
   },
 
   
@@ -44,4 +44,4 @@ module.exports = defineConfig({
     }
   
   
-);*/
+);
