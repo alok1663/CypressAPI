@@ -82,19 +82,71 @@ describe('GetCall function', () => {
     });
   });
 
-
+});
 
 
 //DEMO QUERIES
 
 
+/*
+it('POST', () =>{
+  
+  cy.request({
+   url : gurl + '/posts',
+   method : 'POST',
+   headers : {'Authorzation' : 'Bearer ' + accessToken},	
+
+   body :{
+   
+    "id" : id2,
+    "name" : userName,
+    "email" : alok1663@gmail.com,
+    "gender" : "male",
+    "status" : "active"
+   }
+   
+   }).then((response)=>{
+    cy.writefile('/path/to/file.txt',JSON.stringyfy(response));
+    cy.log(JSON.stringyfy(response));
+    expect(response.status).to.eq(201)
+    expect(response.body.name).to.eq(userName)
+    
+    
+    })
+  
+  })
+
+})
+
+
+*/
 
 
 
 
-});
 
 
 
 
+
+/*
+const username = Math.random().toString(36).substring(2,15);
+let id2 = MAth.floor(Math.random() * 10000);
+
+
+
+beforeEach('',()=>{
+
+cy.viewport(1980,1080)
+cy.visit('www.google.com')
+})
+
+it('click on I am feeling Lucky',()=>{
+  
+  cy.get('a').click();
+  
+  
+  })
+
+*/
 

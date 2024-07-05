@@ -23,3 +23,16 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+
+
+Cypress.Commands.add('loginwithoutparaneter',() =>{
+
+//cy.visit('https://opensource-demo.orangehrmlive.com/web/index.php/auth/login')
+cy.get("input[placeholder='Username']").type('Admin')
+cy.get('input[placeholder="Password"]').type('admin123')
+cy.get(".orangehrm-login-button").should('have.text',' Login ')	
+
+cy.get("button[type='submit']").click()
+
+
+})
